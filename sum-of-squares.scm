@@ -8,8 +8,22 @@
   (cond ((> a b) a)
 	(else b)))
 
-(define (final d e f)
-  (sum-of-squares (greater-value d e) (greater-value d f)))
+(define (largest a b c)
+  (cond ((> (greater-value a b) c) (greater-value a b))
+	(else c)))
+
+(define (smaller-value a b)
+  (cond ((< a b) a)
+	(else b)))
+
+(define (smallest a b c)
+  (cond ((< (smaller-value a b) c) (smaller-value a b))
+	(else c)))
+
+(define (middle-value a b c) (- (largest a b c) (smallest a b c)))
+
+(define (final a b c)
+  (sum-of-squares (largest a b c) (middle-value a b c)))
 
 
 
