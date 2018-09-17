@@ -25,5 +25,7 @@
 (define (final a b c)
   (sum-of-squares (largest a b c) (middle-value a b c)))
 
-
-
+(define (largest-two a b c)
+  (cond ((and (> a c) (> b c)) (values a b))
+        ((and (> b a) (> c a)) (values b c))
+        (else (values a c))))
